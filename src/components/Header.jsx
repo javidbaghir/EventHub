@@ -2,14 +2,16 @@ import { Button, Input, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, NavLink } from "react-router-dom";
 import { getMenus } from "../router/router";
+import { useContextGlobal } from "../context/GlobalContext";
+import { removeStorage } from "../utils/StorageUtils";
 
 function Header() {
   const getMenu = getMenus();
 
-  const token = localStorage.token;
+  const { storage } = useContextGlobal();
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
+    removeStorage(storage);
     window.location.reload();
   };
 
@@ -43,7 +45,7 @@ function Header() {
         }
       />
 
-      {token ? (
+      {storage.token ? (
         <Button
           variant="contained"
           onClick={() => handleLogout()}

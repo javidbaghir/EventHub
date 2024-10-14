@@ -1,12 +1,12 @@
 import { Navigate } from "react-router-dom";
+import { useContextGlobal } from "../context/GlobalContext";
 
-function AuthProvider({children}) {
+function AuthProvider({ children }) {
+  const { storage } = useContextGlobal();
 
-    const token = localStorage.token;
+  if (!storage.token) return <Navigate to={"/login"} />;
 
-    if (!token) return <Navigate to={'/login'} />
-
-    return children;
+  return children;
 }
 
 export default AuthProvider;

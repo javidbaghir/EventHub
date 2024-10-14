@@ -1,11 +1,14 @@
 import { Container } from "@mui/material";
 import React from 'react'
 import { Navigate } from 'react-router-dom';
+import { useContextGlobal } from "../context/GlobalContext";
 
 function AuthLayout({children}) {
-  const token = localStorage.token;
 
-    if (token) return <Navigate to={'/'}/>
+  
+  const {storage} = useContextGlobal();
+
+    if (storage.token) return <Navigate to={'/'}/>
 
     return (
      <>

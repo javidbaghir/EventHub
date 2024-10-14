@@ -9,6 +9,7 @@ import ContactUs from "../pages/ContactUs";
 import AppLayout from "../layouts/AppLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import AuthProvider from "../provider/AuthProvider";
+import { GlobalContextProvider } from "../context/GlobalContext";
 
 const routes = [
   {
@@ -71,7 +72,13 @@ const createRouter = (routes) => {
     }
 
     if (router.isAuth)
-      router.element = <AuthProvider>{router.element}</AuthProvider>;
+      router.element = <AuthProvider>{router.element}</AuthProvider>
+
+    router.element = (
+      <GlobalContextProvider>
+        {router.element}
+      </GlobalContextProvider>
+  )
 
     return router;
   });

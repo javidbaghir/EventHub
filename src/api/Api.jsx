@@ -1,24 +1,26 @@
 import axios from "axios";
-import React from "react";
 
-// const getAboutData = async () => {
-//   const api = await axios.get(
-//     "https://fakerapi.it/api/v2/addresses?_quantity=1"
-//   );
+import { API_CONFIG } from "../config/ApiConfig";
+import { getStorage } from "../utils/StorageUtils";
 
-//   return api.data;
-// };
+const createInstance = () => {
+  const headers = {
+      'Content-Type': 'application/json',
+      'accept':'application/json'
+  };
 
-// const getAddressData = async () => {
-//   const response = await axios.get(
-//     "https://fakerapi.it/api/v2/addresses?_quantity=1"
-//   );
+  if (getStorage("token")) {
+    headers["Authorization"] = `Bearer ${getStorage("token")}`;
+  }
 
-//   return response.data;
-// };
+  const instance = axios.create({
+    baseURL: API_CONFIG.baseURL,
+    timeout: 1000,
+    headers,
+  });
 
-function Api() {
-  return <div>Api</div>;
-}
-// export { getAboutData, getAddressData };
-export default Api;
+  return instance;
+};
+
+export const ApiPost = (url, data) => createInstance().post(url, data);
+export const ApiGet = (url, config = {}) => createInstance().get(url, config);

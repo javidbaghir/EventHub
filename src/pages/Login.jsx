@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Button,
   FormControl,
@@ -10,8 +10,12 @@ import {
   Typography,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
+import { AUTH_ENDPOINT } from "../api/AuthEndpoint";
+import { API_CONFIG } from "../config/ApiConfig";
+import { ApiGet, ApiPost } from "../api/Api";
+import { getStorage, setStorage } from "../utils/StorageUtils";
 
 function Login() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -25,6 +29,44 @@ function Login() {
     event.preventDefault();
   };
 
+  const [values, setValues] = useState({
+    email: "",
+    password: "",
+  });
+
+  const handleFieldChange = (e) => {
+    const { name, value } = e.target;
+    setValues((oldValues) => ({
+      ...oldValues,
+      [name]: value,
+    }));
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    const login = await ApiPost(AUTH_ENDPOINT.login, values);
+
+    if (login.status === 200 && login.data) {
+      setStorage("token", login.data.token);
+      window.location.reload();
+      <Navigate to={"/"} />;
+
+      // const user = await ApiGet(AUTH_ENDPOINT.user, {
+      //   headers: {
+      //     Authorization: `Bearer ${login.data.token}`,
+      //   },
+      // });
+
+      // if (user.status === 200) {
+      //   setStorage("token", login.data.token);
+      //   setStorage("user", user.data);
+      //   window.location.reload();
+      // }
+    }
+  };
+
+  if (getStorage("token")) return <Navigate to={"/"} />;
+
   return (
     <div className="grid grid-cols-3 p-5">
       <div>
@@ -36,14 +78,27 @@ function Login() {
       </div>
 
       <div className="flex flex-col items-center space-y-3">
-       <PageTitle title={"Daxil Olun"}/>
+        <PageTitle title={"Daxil Olun"} />
 
-        <div className="flex flex-col gap-5 justify-center items-center w-[300px]">
-          <TextField id="filled-basic" label="Email" fullWidth />
+        <form
+          onSubmit={onSubmit}
+          className="flex flex-col gap-5 justify-center items-center w-[300px]"
+        >
+          <TextField
+            name="email"
+            value={values.email}
+            onChange={handleFieldChange}
+            id="filled-basic"
+            label="Email"
+            fullWidth
+          />
 
           <FormControl variant="outlined" fullWidth>
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
+              name="password"
+              value={values.password}
+              onChange={handleFieldChange}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
@@ -64,13 +119,14 @@ function Login() {
           </FormControl>
 
           <Button
+            type="submit"
             style={{ backgroundColor: "#7848f4", color: "#FFFFFF" }}
             variant="contained"
             fullWidth
           >
             Daxil Ol
           </Button>
-        </div>
+        </form>
       </div>
 
       <div className="flex justify-end">
