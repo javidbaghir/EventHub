@@ -31,7 +31,7 @@ function ContactUsForm() {
             style={{ backgroundColor: "#7848f4", color: "#FFFFFF" }}
             variant="contained"
           >
-            Contained
+            Göndər
           </Button>
         </div>
       </form>

@@ -13,12 +13,16 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link, Navigate, NavLink } from "react-router-dom";
 import PageTitle from "../components/PageTitle";
 import { AUTH_ENDPOINT } from "../api/AuthEndpoint";
-import { API_CONFIG } from "../config/ApiConfig";
-import { ApiGet, ApiPost } from "../api/Api";
+import { ApiPost } from "../api/Api";
 import { getStorage, setStorage } from "../utils/StorageUtils";
 
 function Login() {
-  const [showPassword, setShowPassword] = React.useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState({
+    email: "",
+    passsword: "",
+  });
+
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -40,30 +44,70 @@ function Login() {
       ...oldValues,
       [name]: value,
     }));
+
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    let tempErrors = { email: "", password: "" };
+    let isValid = true;
+
+    if (!values.email) {
+      tempErrors.email = "Email boş ola bilməz";
+      isValid = false;
+    } else {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(values.email)) {
+        tempErrors.email = "Düzgün email daxil edin.";
+        isValid = false;
+      }
+    }
+
+    if (!values.password) {
+      tempErrors.password = "Parol boş ola bilməz";
+      isValid = false;
+    } else if (values.password.length < 3) {
+      tempErrors.password = "Parol minimum 3 simvoldan ibarət olmalıdır";
+      isValid = false;
+    }
+
+    setError(tempErrors);
+    return isValid;
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    const login = await ApiPost(AUTH_ENDPOINT.login, values);
+    if (validate()) {
+      try {
+        const login = await ApiPost(AUTH_ENDPOINT.login, values);
 
-    if (login.status === 200 && login.data) {
-      setStorage("token", login.data.token);
-      window.location.reload();
-      <Navigate to={"/"} />;
-
-      // const user = await ApiGet(AUTH_ENDPOINT.user, {
-      //   headers: {
-      //     Authorization: `Bearer ${login.data.token}`,
-      //   },
-      // });
-
-      // if (user.status === 200) {
-      //   setStorage("token", login.data.token);
-      //   setStorage("user", user.data);
-      //   window.location.reload();
-      // }
+        if (login.status === 200 && login.data) {
+          setStorage("token", login.data.token);
+          window.location.reload();
+        }
+      } catch (error) {
+        setError((prev) => ({
+          ...prev,
+          email: "Email və ya parol yanlışdır.",
+        }));
+      }
     }
   };
+
+  // const user = await ApiGet(AUTH_ENDPOINT.user, {
+  //   headers: {
+  //     Authorization: `Bearer ${login.data.token}`,
+  //   },
+  // });
+
+  // if (user.status === 200) {
+  //   setStorage("token", login.data.token);
+  //   setStorage("user", user.data);
+  //   window.location.reload();
+  // }
 
   if (getStorage("token")) return <Navigate to={"/"} />;
 
@@ -91,9 +135,15 @@ function Login() {
             id="filled-basic"
             label="Email"
             fullWidth
+            error={Boolean(error.email)}
+            helperText={error.email}
           />
 
-          <FormControl variant="outlined" fullWidth>
+          <FormControl
+            variant="outlined"
+            fullWidth
+            error={Boolean(error.password)}
+          >
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
               name="password"
@@ -116,6 +166,11 @@ function Login() {
               }
               label="Password"
             />
+          {error.password && (
+              <Typography variant="caption" color="error">
+                {error.password}
+              </Typography>
+            )}
           </FormControl>
 
           <Button

@@ -1,9 +1,9 @@
 import { deCode, enCode } from "./CryptoUtil";
 
-const Storage = localStorage.storage ? JSON.parse(localStorage.storage) : {};
+const Storage = localStorage.storage ? JSON.parse(deCode(localStorage.storage)) : {};
 
 const save = () => {
-  localStorage.setItem("storage", JSON.stringify(Storage));
+  localStorage.setItem("storage", enCode(JSON.stringify(Storage)));
 };
 
 export const allStorage = () => Storage

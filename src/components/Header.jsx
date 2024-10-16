@@ -11,7 +11,7 @@ function Header() {
   const { storage } = useContextGlobal();
 
   const handleLogout = () => {
-    removeStorage(storage);
+    removeStorage("token");
     window.location.reload();
   };
 
@@ -19,7 +19,13 @@ function Header() {
     <div className="flex items-center justify-between p-[40px]">
       <div className="flex space-x-9">
         <Link to="/" className="text-[30px] font-bold">
-          EventHub
+          <figure className="w-[130px] h-[20px]">
+            <img
+              className="size-full object-cover"
+              src="../public/EventHub.svg"
+              alt=""
+            />
+          </figure>
         </Link>
       </div>
 
@@ -29,7 +35,7 @@ function Header() {
             key={index}
             to={menu.path}
             className={({ isActive }) =>
-              isActive ? "bg-btn text-[#fff] px-5 py-1 rounded" : ""
+              isActive ? "bg-btn text-[#fff] px-5 py-1 rounded-lg" : ""
             }
           >
             {menu.label}
@@ -50,7 +56,7 @@ function Header() {
           variant="contained"
           onClick={() => handleLogout()}
           style={{
-            borderRadius: 3,
+            borderRadius: 8,
             backgroundColor: "#7848f4",
           }}
         >
@@ -60,7 +66,7 @@ function Header() {
         <div className="flex items-center gap-[50px]">
           <Link to="/login">Daxil ol</Link>
           <Link
-            to="register"
+            to="/register"
             className="bg-[#7848f4] font-bold px-[30px] py-[15px] text-[#fff] rounded"
           >
             Qeydiyyat

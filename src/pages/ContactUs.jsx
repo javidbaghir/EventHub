@@ -6,13 +6,11 @@ import PageTitle from "../components/PageTitle";
 function ContactUs() {
   return (
     <div>
+      <PageTitle title={"Bizimlə Əlaqə"} />
 
-     <PageTitle title={"Bizimlə Əlaqə"}/>
-
-
-      <div className="grid grid-cols-2 p-20 gap-10">
+      <div className="flex p-20 gap-10">
         <ContactUsForm />
-        {/* <div className="border-r"></div> */}
+        <div className="border-r border-[#7c7c7c]"></div>
         <ContactUsAdresses />
       </div>
     </div>

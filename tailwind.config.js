@@ -7,7 +7,9 @@ export default {
   theme: {
     colors: {
       btn: '#7848f4',
-      footerBg: "#10107b"
+      footerBg: "#10107b",
+      white: '#fff',
+      black: '#000',
     },
     extend: {},
   },
