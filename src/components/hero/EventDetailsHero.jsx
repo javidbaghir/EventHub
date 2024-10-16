@@ -1,6 +1,5 @@
 import { Button, Typography } from "@mui/material";
 import React from "react";
-import CategoryTitle from "../titles/CategoryTitle";
 import { IoIosArrowBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 

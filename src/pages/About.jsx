@@ -6,15 +6,15 @@ import PageTitle from "../components/titles/PageTitle";
 function About() {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await getAboutData();
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const result = await getAboutData();
 
-      setData(result);
-    };
+  //     setData(result);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <div className="space-y-[40px] p-[50px]">

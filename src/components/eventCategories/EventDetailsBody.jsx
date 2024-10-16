@@ -4,7 +4,7 @@ import MapAddress from "../map/MapAddress";
 import { Link } from "react-router-dom";
 
 function EventDetailsBody({ data }) {
-  const { description, content, published_date } = data;
+  const { content, published_date } = data;
 
   return (
     <div className="grid grid-cols-2 gap-[90px] px-10">
