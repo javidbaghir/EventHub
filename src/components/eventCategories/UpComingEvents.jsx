@@ -1,29 +1,29 @@
 import React, { useEffect, useState } from "react";
-import { ApiGet } from "../api/Api";
 import EventCard from "./EventCard";
 import { Button } from "@mui/material";
-import { fetchData } from "../utils/ApiHelper";
+import useFetch from "../../hooks/UseFetch";
+import LoadMore from "../LoadMoreButton";
+import LoadMoreButton from "../LoadMoreButton";
 
-function LocalEvents() {
-  const [events, setEvents] = useState([]);
+function UpComingEvents() {
 
-  useEffect(() => {
-    const fetchEvents = async () => {
-      const eventsData = await fetchData('https://all-api.bitcode.az/api/news?limit=3&category=science');
+  const [limit, setLimit] = useState(6);
 
-      setEvents(Array.isArray(eventsData.data) ? eventsData.data : []);
-    };
+  const {
+    data: events,
+    loading,
+    error,
+  } = useFetch(`https://all-api.bitcode.az/api/news?limit=${limit}&category=economy`);
 
-    fetchEvents();
-  });
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-8">
       <div className="grid grid-cols-3 gap-5">
         {events.length > 0 ? (
           events.map((event) => (
             <EventCard
               key={event.id}
+              id={event.id}
               title={event.title}
               photo={event.photo}
               publishDate={event.published_date}
@@ -35,12 +35,10 @@ function LocalEvents() {
       </div>
 
       <div className="flex justify-center">
-        <Button style={{ backgroundColor: "#7848f4", color: "#FFFFFF" }}>
-          Daha çox
-        </Button>
+      <LoadMoreButton setLimit={setLimit}/>
       </div>
     </div>
   );
 }
 
-export default LocalEvents;
+export default UpComingEvents;

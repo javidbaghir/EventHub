@@ -1,7 +1,6 @@
-import { Button, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
-import { items } from "../fakedatabse/database";
+import { items } from "../../fakedatabse/database";
 
 function Hero() {
   const [index, setIndex] = useState(0);

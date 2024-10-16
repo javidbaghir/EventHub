@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 // import { getAboutData } from "../api/Api";
 import { dbAboutPage } from "../fakedatabse/database";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/titles/PageTitle";
 
 function About() {
   const [data, setData] = useState([]);
@@ -18,7 +18,7 @@ function About() {
 
   return (
     <div className="space-y-[40px] p-[50px]">
-     <PageTitle title={"Haqqımızda"}/>
+      <PageTitle title={"Haqqımızda"} />
 
       <div className="flex flex-col justify-start space-y-4">
         {dbAboutPage.map((item, index) => (

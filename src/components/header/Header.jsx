@@ -1,9 +1,9 @@
 import { Button, Input, InputAdornment } from "@mui/material";
 import SearchIcon from "@mui/icons-material/Search";
 import { Link, NavLink } from "react-router-dom";
-import { getMenus } from "../router/router";
-import { useContextGlobal } from "../context/GlobalContext";
-import { removeStorage } from "../utils/StorageUtils";
+import { getMenus } from "../../router/router";
+import { useContextGlobal } from "../../context/GlobalContext";
+import { removeStorage } from "../../utils/StorageUtils";
 
 function Header() {
   const getMenu = getMenus();

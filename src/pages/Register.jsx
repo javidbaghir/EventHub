@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/titles/PageTitle";
 
 function Register() {
   const [showPassword, setShowPassword] = React.useState(false);
@@ -42,7 +42,7 @@ function Register() {
             EventHub'a xoş gəlmisiniz
           </Typography>
 
-          <PageTitle title={"Qeydiyyat"}/>
+          <PageTitle title={"Qeydiyyat"} />
         </div>
 
         <div className="flex flex-col gap-4">
@@ -107,7 +107,9 @@ function Register() {
       <div className="flex justify-end">
         <NavLink to={"/login"}>
           <Typography variant="h5">
-            <span className="bg-btn text-[#fff] px-3 rounded py-1">Daxil Olun!</span>
+            <span className="bg-btn text-[#fff] px-3 rounded py-1">
+              Daxil Olun!
+            </span>
           </Typography>
         </NavLink>
       </div>

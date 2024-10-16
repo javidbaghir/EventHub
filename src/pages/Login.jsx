@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Link, Navigate, NavLink } from "react-router-dom";
-import PageTitle from "../components/PageTitle";
+import PageTitle from "../components/titles/PageTitle";
 import { AUTH_ENDPOINT } from "../api/AuthEndpoint";
 import { ApiPost } from "../api/Api";
 import { getStorage, setStorage } from "../utils/StorageUtils";
@@ -166,7 +166,7 @@ function Login() {
               }
               label="Password"
             />
-          {error.password && (
+            {error.password && (
               <Typography variant="caption" color="error">
                 {error.password}
               </Typography>

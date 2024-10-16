@@ -3,7 +3,7 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import React, { useState } from "react";
-import PageTitle from "./PageTitle";
+import PageTitle from "../titles/PageTitle";
 
 function CreateEventForm() {
   const [startDate, setStartDate] = useState(null);

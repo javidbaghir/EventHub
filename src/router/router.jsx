@@ -41,7 +41,7 @@ const routes = [
     layout: AppLayout,
   },
   {
-    path: "/eventDetails",
+    path: "/eventDetails/:id",
     element: <EventDetails />,
     layout: AppLayout,
   },
@@ -72,13 +72,11 @@ const createRouter = (routes) => {
     }
 
     if (router.isAuth)
-      router.element = <AuthProvider>{router.element}</AuthProvider>
+      router.element = <AuthProvider>{router.element}</AuthProvider>;
 
     router.element = (
-      <GlobalContextProvider>
-        {router.element}
-      </GlobalContextProvider>
-  )
+      <GlobalContextProvider>{router.element}</GlobalContextProvider>
+    );
 
     return router;
   });

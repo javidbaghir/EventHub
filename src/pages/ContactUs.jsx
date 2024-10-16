@@ -1,7 +1,7 @@
 import React from "react";
-import ContactUsForm from "../components/ContactUsForm";
-import ContactUsAdresses from "../components/ContactUsAdresses";
-import PageTitle from "../components/PageTitle";
+import ContactUsForm from "../components//contactUs/ContactUsForm";
+import ContactUsAdresses from "../components//contactUs/ContactUsAdresses";
+import PageTitle from "../components//titles/PageTitle";
 
 function ContactUs() {
   return (

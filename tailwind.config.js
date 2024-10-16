@@ -10,6 +10,7 @@ export default {
       footerBg: "#10107b",
       white: '#fff',
       black: '#000',
+      tagBg: '#f8f8fa',
     },
     extend: {},
   },

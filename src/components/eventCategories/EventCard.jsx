@@ -1,7 +1,8 @@
 import { Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
-function EventCard({ title, photo, publishDate }) {
+function EventCard({ id, title, photo, publishDate }) {
   return (
     <div>
       <div className="bg-white p-[20px] space-y-[15px] shadow-lg hover:shadow-2xl rounded-xl transition-shadow duration-300">
@@ -9,7 +10,7 @@ function EventCard({ title, photo, publishDate }) {
           <img
             className="object-cover size-full rounded-md"
             src={photo}
-            alt=""
+            alt={title}
           />
         </figure>
 
@@ -25,6 +26,12 @@ function EventCard({ title, photo, publishDate }) {
 
         <div>
           <p className="text-btn">{publishDate}</p>
+        </div>
+
+        <div>
+          <Link className="font-bold" to={`/eventDetails/${id}`} >
+            Daha Ətraflı...
+          </Link>
         </div>
       </div>
     </div>

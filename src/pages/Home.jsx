@@ -1,10 +1,10 @@
 import React from "react";
-import CategoryTitle from "../components/CategoryTitle";
-import Hero from "../components/Hero";
-import MakeOwnEvent from "../components/MakeOwnEvent";
-import UpComingEvents from "../components/UpComingEvents";
-import TrendEvents from "../components/TrendEvents";
-import LocalEvents from "../components/LocalEvents";
+import CategoryTitle from "../components/titles/CategoryTitle";
+import Hero from "../components//hero/Hero";
+import MakeOwnEvent from "../components/eventCategories/MakeOwnEvent";
+import UpComingEvents from "../components/eventCategories/UpComingEvents";
+import TrendEvents from "../components/eventCategories/TrendEvents";
+import LocalEvents from "../components/eventCategories/LocalEvents";
 
 function Home() {
   return (
@@ -16,7 +16,7 @@ function Home() {
       <CategoryTitle name={"Trenddə olan tədbirlər"} />
       <TrendEvents />
       <CategoryTitle name={"Yerli tədbirlər"} />
-      <LocalEvents/>
+      <LocalEvents />
     </div>
   );
 }

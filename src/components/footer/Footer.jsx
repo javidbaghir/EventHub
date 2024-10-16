@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, NavLink } from "react-router-dom";
-import { getMenus } from "../router/router";
+import { getMenus } from "../../router/router";
 import { FaInstagram } from "react-icons/fa";
 import { CiFacebook, CiLinkedin } from "react-icons/ci";
 
