@@ -30,7 +30,7 @@ function EventDetailsBody({ data }) {
         </div>
 
         <div>
-          {data?.author?.agency ? data.author.agency : "Təşkilatçı məlum deyil"}
+          <Link to={`/company/${data?.author?.slug}`}>{data?.author?.slug ? data.author.slug : "Təşkilatçı məlum deyil"}</Link>
         </div>
       </div>
 

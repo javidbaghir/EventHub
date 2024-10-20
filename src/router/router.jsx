@@ -11,6 +11,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import AuthProvider from "../provider/AuthProvider";
 import { GlobalContextProvider } from "../context/GlobalContext";
 import Search from "../pages/Search";
+import Company from "../components/Company";
 
 const routes = [
   {
@@ -38,7 +39,13 @@ const routes = [
     path: "/createEvent",
     label: "Öz Tədbirini Yarat",
     element: <CreateEvent />,
+    isMenu: true,
     isAuth: true,
+    layout: AppLayout,
+  },
+  {
+    path: "/company/:slug",
+    element: <Company />,
     layout: AppLayout,
   },
   {

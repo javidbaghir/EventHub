@@ -7,7 +7,7 @@ import { CiFacebook, CiLinkedin } from "react-icons/ci";
 function Footer() {
   const getMenu = getMenus();
   return (
-    <div className="p-[30px] bg-footerBg space-y-[30px]">
+    <div className="p-[30px] bg-footerBg space-y-[30px] mt-5">
       <div className="flex justify-center">
         <Link
           to={"/"}
