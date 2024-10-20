@@ -15,13 +15,14 @@ import PageTitle from "../components/titles/PageTitle";
 import { AUTH_ENDPOINT } from "../api/AuthEndpoint";
 import { ApiPost } from "../api/Api";
 import { getStorage, setStorage } from "../utils/StorageUtils";
+import { useForm } from "../hooks/UseForm";
+import Loading from "../components/loading/Loading";
+import { useContextGlobal } from "../context/GlobalContext";
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState({
-    email: "",
-    passsword: "",
-  });
+
+  const { errors } = useContextGlobal();
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
@@ -33,81 +34,21 @@ function Login() {
     event.preventDefault();
   };
 
-  const [values, setValues] = useState({
-    email: "",
-    password: "",
+  const { value, loading, setField, handleSubmit } = useForm({
+    initialState: {
+      email: "",
+      password: "",
+    },
+
+    onSubmit: async (value) => {
+      const login = await ApiPost(AUTH_ENDPOINT.login, value);
+
+      if (login.status === 200 && login.data) {
+        setStorage("token", login.data.token);
+        window.location.reload();
+      }
+    },
   });
-
-  const handleFieldChange = (e) => {
-    const { name, value } = e.target;
-    setValues((oldValues) => ({
-      ...oldValues,
-      [name]: value,
-    }));
-
-    setErrors((prevErrors) => ({
-      ...prevErrors,
-      [name]: "",
-    }));
-  };
-
-  const validate = () => {
-    let tempErrors = { email: "", password: "" };
-    let isValid = true;
-
-    if (!values.email) {
-      tempErrors.email = "Email boş ola bilməz";
-      isValid = false;
-    } else {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(values.email)) {
-        tempErrors.email = "Düzgün email daxil edin.";
-        isValid = false;
-      }
-    }
-
-    if (!values.password) {
-      tempErrors.password = "Parol boş ola bilməz";
-      isValid = false;
-    } else if (values.password.length < 3) {
-      tempErrors.password = "Parol minimum 3 simvoldan ibarət olmalıdır";
-      isValid = false;
-    }
-
-    setError(tempErrors);
-    return isValid;
-  };
-
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    if (validate()) {
-      try {
-        const login = await ApiPost(AUTH_ENDPOINT.login, values);
-
-        if (login.status === 200 && login.data) {
-          setStorage("token", login.data.token);
-          window.location.reload();
-        }
-      } catch (error) {
-        setError((prev) => ({
-          ...prev,
-          email: "Email və ya parol yanlışdır.",
-        }));
-      }
-    }
-  };
-
-  // const user = await ApiGet(AUTH_ENDPOINT.user, {
-  //   headers: {
-  //     Authorization: `Bearer ${login.data.token}`,
-  //   },
-  // });
-
-  // if (user.status === 200) {
-  //   setStorage("token", login.data.token);
-  //   setStorage("user", user.data);
-  //   window.location.reload();
-  // }
 
   if (getStorage("token")) return <Navigate to={"/"} />;
 
@@ -125,30 +66,30 @@ function Login() {
         <PageTitle title={"Daxil Olun"} />
 
         <form
-          onSubmit={onSubmit}
+          onSubmit={handleSubmit}
           className="flex flex-col gap-5 justify-center items-center w-[300px]"
         >
           <TextField
             name="email"
-            value={values.email}
-            onChange={handleFieldChange}
+            value={value.email}
+            onChange={(e) => setField("email", e.target.value)}
             id="filled-basic"
             label="Email"
             fullWidth
-            error={Boolean(error.email)}
-            helperText={error.email}
+            error={Boolean(errors.email)}
+            helperText={errors.email}
           />
 
           <FormControl
             variant="outlined"
             fullWidth
-            error={Boolean(error.password)}
+            error={Boolean(errors.password)}
           >
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
               name="password"
-              value={values.password}
-              onChange={handleFieldChange}
+              value={value.password}
+              onChange={(e) => setField("password", e.target.value)}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
@@ -166,9 +107,15 @@ function Login() {
               }
               label="Password"
             />
-            {error.password && (
+            {errors.password && (
               <Typography variant="caption" color="error">
-                {error.password}
+                {errors.password}
+              </Typography>
+            )}
+
+            {errors.message && (
+              <Typography variant="caption" color="error">
+                {errors.message}
               </Typography>
             )}
           </FormControl>
@@ -179,7 +126,8 @@ function Login() {
             variant="contained"
             fullWidth
           >
-            Daxil Ol
+           {loading ? <Loading /> :  "Daxil Ol"}
+           
           </Button>
         </form>
       </div>

@@ -5,7 +5,7 @@ import useFetch from "../../hooks/UseFetch";
 import LoadMore from "../LoadMoreButton";
 import LoadMoreButton from "../LoadMoreButton";
 
-function UpComingEvents() {
+function UpComingEvents({url}) {
 
   const [limit, setLimit] = useState(6);
 
@@ -13,7 +13,7 @@ function UpComingEvents() {
     data: events,
     loading,
     error,
-  } = useFetch(`https://all-api.bitcode.az/api/news?limit=${limit}&category=economy`);
+  } = useFetch(url);
 
 
   return (

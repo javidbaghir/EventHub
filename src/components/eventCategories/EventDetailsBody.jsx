@@ -2,6 +2,7 @@ import React from "react";
 import CategoryTitle from "../titles/CategoryTitle";
 import MapAddress from "../map/MapAddress";
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 function EventDetailsBody({ data }) {
   const { content, published_date } = data;
@@ -13,13 +14,16 @@ function EventDetailsBody({ data }) {
           <CategoryTitle name={"Ətraflı"} />
         </div>
 
-        <div>{content}</div>
+        <div dangerouslySetInnerHTML={{ __html: content }} />
 
         <div>
-          <CategoryTitle name={"Saat"} />
+          <CategoryTitle name={"Tədbir Tarixi"} />
         </div>
 
-        <div>{published_date}</div>
+        <div>
+          <p>Tarix: {moment(published_date).format("ll")}</p>
+          <p>Saat: Tarix: {moment(published_date).format("LT")}</p>
+        </div>
 
         <div>
           <CategoryTitle name={"Təşkilatçı Şirkət"} />

@@ -2,21 +2,25 @@ import React from "react";
 import CategoryTitle from "../components/titles/CategoryTitle";
 import Hero from "../components//hero/Hero";
 import MakeOwnEvent from "../components/eventCategories/MakeOwnEvent";
-import UpComingEvents from "../components/eventCategories/UpComingEvents";
-import TrendEvents from "../components/eventCategories/TrendEvents";
-import LocalEvents from "../components/eventCategories/LocalEvents";
+import EventCategorySection from "../components/eventCategories/eventCategorySection";
 
 function Home() {
   return (
     <div className="space-y-10 py-5">
       <Hero />
       <CategoryTitle name={"Gələcək tədbirlər"} />
-      <UpComingEvents />
+      <EventCategorySection
+        url={`https://all-api.bitcode.az/api/news?limit=6&category=economy`}
+      />
       <MakeOwnEvent />
       <CategoryTitle name={"Trenddə olan tədbirlər"} />
-      <TrendEvents />
+      <EventCategorySection
+        url={`https://all-api.bitcode.az/api/news?limit=3&category=world`}
+      />
       <CategoryTitle name={"Yerli tədbirlər"} />
-      <LocalEvents />
+      <EventCategorySection
+        url={`https://all-api.bitcode.az/api/news?limit=3&category=world`}
+      />
     </div>
   );
 }

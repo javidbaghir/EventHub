@@ -3,7 +3,6 @@ import {
   Button,
   FormControl,
   IconButton,
-  Input,
   InputAdornment,
   InputLabel,
   OutlinedInput,
@@ -11,12 +10,19 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, Navigate, NavLink } from "react-router-dom";
 import PageTitle from "../components/titles/PageTitle";
+import { useForm } from "../hooks/UseForm";
+import { AUTH_ENDPOINT } from "../api/AuthEndpoint";
+import { ApiPost } from "../api/Api";
+import { useContextGlobal } from "../context/GlobalContext";
+import { getStorage, setStorage } from "../utils/StorageUtils";
+import Loading from "../components/loading/Loading";
 
 function Register() {
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => setShowPassword((show) => !show);
+  const { errors } = useContextGlobal();
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -25,6 +31,34 @@ function Register() {
   const handleMouseUpPassword = (event) => {
     event.preventDefault();
   };
+
+  const { value, setField, handleSubmit, loading } = useForm({
+    initialState: {
+      name: "",
+      surname: "",
+      email: "",
+      password: "",
+    },
+    onSubmit: async (value) => {
+      const register = await ApiPost(AUTH_ENDPOINT.register, value);
+
+      if (register.status === 201 && register.data) {
+        setStorage("token", register.data);
+        const user = await apiGet(AUTH_ENDPOINT.user, {
+          headers: {
+            Authorization: `Bearer ${register.data}`,
+          },
+        });
+        console.log(user);
+
+        if (user.status === 200) {
+          setStorage("user", user.data);
+          window.location.reload();
+        }
+      }
+    },
+  });
+  if (getStorage("token")) return <Navigate to={"/"} />;
 
   return (
     <div className="grid grid-cols-3 space-y-7">
@@ -45,14 +79,43 @@ function Register() {
           <PageTitle title={"Qeydiyyat"} />
         </div>
 
-        <div className="flex flex-col gap-4">
-          <TextField id="filled-basic" label="Ad" />
-          <TextField id="filled-basic" label="Soyad" />
-          <TextField id="filled-basic" label="Email" />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <TextField
+            error={errors.name}
+            helperText={errors.name}
+            onChange={(e) => setField("name", e.target.value)}
+            name="name"
+            value={value.name}
+            id="filled-basic"
+            label="Ad"
+          />
+          <TextField
+            error={errors.surname}
+            helperText={errors.surname}
+            name="surname"
+            value={value.surname}
+            onChange={(e) => setField("surname", e.target.value)}
+            id="filled-basic"
+            label="Soyad"
+          />
+          <TextField
+            error={errors.email}
+            helperText={errors.email}
+            name="email"
+            value={value.email}
+            onChange={(e) => setField("email", e.target.value)}
+            id="filled-basic"
+            label="Email"
+          />
 
-          <FormControl variant="outlined">
+          <FormControl error={Boolean(errors.password)} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
+              error={errors.password}
+              helperText={errors.password}
+              name="password"
+              value={value.password}
+              onChange={(e) => setField("password", e.target.value)}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
               endAdornment={
@@ -70,39 +133,27 @@ function Register() {
               }
               label="Password"
             />
-          </FormControl>
+            {errors.password && (
+              <Typography variant="caption" color="error">
+                {errors.password}
+              </Typography>
+            )}
 
-          <FormControl variant="outlined">
-            <InputLabel htmlFor="outlined-adornment-password">
-              Təkrar Parol
-            </InputLabel>
-            <OutlinedInput
-              id="outlined-adornment-password"
-              type={showPassword ? "text" : "password"}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle password visibility"
-                    onClick={handleClickShowPassword}
-                    onMouseDown={handleMouseDownPassword}
-                    onMouseUp={handleMouseUpPassword}
-                    edge="end"
-                  >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              }
-              label="Password"
-            />
+            {errors.message && (
+              <Typography variant="caption" color="error">
+                {errors.message}
+              </Typography>
+            )}
           </FormControl>
 
           <Button
+            type="submit"
             style={{ backgroundColor: "#7848f4", color: "#FFFFFF" }}
             variant="contained"
           >
-            Qeydiyyat
+            {loading ? <Loading /> : "Qeydiyyat"}
           </Button>
-        </div>
+        </form>
       </div>
       <div className="flex justify-end">
         <NavLink to={"/login"}>

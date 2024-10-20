@@ -5,18 +5,23 @@ import EventDetailsHero from "../components/hero/EventDetailsHero";
 import EventDetailsBody from "../components/eventCategories/EventDetailsBody";
 import UpComingEvents from "../components/eventCategories/UpComingEvents";
 import CategoryTitle from "../components/titles/CategoryTitle";
+import EventCategorySection from "../components/eventCategories/eventCategorySection";
 
 function EventDetails() {
   const { id } = useParams();
 
   const { data } = useFetch(`https://all-api.bitcode.az/api/news/show/${id}`);
+  // const { data } = useFetch(`https://fakestoreapi.com/products/${id}`);
+  console.log(id);
 
   return (
     <div className="space-y-10 pb-10">
       <EventDetailsHero data={data} />
       <EventDetailsBody data={data} />
       <CategoryTitle name={"Bəyənə biləcəyiniz digər tədbirlər"} />
-      <UpComingEvents />
+      <EventCategorySection
+        url={"https://all-api.bitcode.az/api/news/random?limit=6"}
+      />
     </div>
   );
 }

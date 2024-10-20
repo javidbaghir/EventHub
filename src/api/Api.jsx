@@ -5,8 +5,8 @@ import { getStorage } from "../utils/StorageUtils";
 
 const createInstance = () => {
   const headers = {
-      'Content-Type': 'application/json',
-      'accept':'application/json'
+    "Content-Type": "application/json",
+    accept: "application/json",
   };
 
   if (getStorage("token")) {
@@ -22,5 +22,11 @@ const createInstance = () => {
   return instance;
 };
 
-export const ApiPost = (url, data) => createInstance().post(url, data);
+export const ApiPost = (url, data) => {
+  try {
+    return createInstance().post(url, data);
+  } catch (e) {
+    return false;
+  }
+};
 export const ApiGet = (url, config = {}) => createInstance().get(url, config);

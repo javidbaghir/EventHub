@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import moment from "moment";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -25,7 +26,7 @@ function EventCard({ id, title, photo, publishDate }) {
         </div>
 
         <div>
-          <p className="text-btn">{publishDate}</p>
+          <p className="text-btn">{moment(publishDate).format('LL')}</p>
         </div>
 
         <div>

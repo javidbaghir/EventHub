@@ -10,6 +10,7 @@ import AppLayout from "../layouts/AppLayout";
 import AuthLayout from "../layouts/AuthLayout";
 import AuthProvider from "../provider/AuthProvider";
 import { GlobalContextProvider } from "../context/GlobalContext";
+import Search from "../pages/Search";
 
 const routes = [
   {
@@ -38,6 +39,11 @@ const routes = [
     label: "Öz Tədbirini Yarat",
     element: <CreateEvent />,
     isAuth: true,
+    layout: AppLayout,
+  },
+  {
+    path: "/search",
+    element: <Search />,
     layout: AppLayout,
   },
   {

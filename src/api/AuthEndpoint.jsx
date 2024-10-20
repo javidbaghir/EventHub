@@ -1,6 +1,6 @@
 export const AUTH_ENDPOINT = {
   register: "/auth/register",
-  login: "/users/login",
-  user: "/user",
+  login: "/auth/login",
+  user: "auth/user",
   password: "/auth/password",
 };
