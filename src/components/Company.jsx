@@ -15,13 +15,18 @@ function Company() {
 
   return (
     <div className="space-y-10">
-      <div className="flex items-center gap-x-5">
-        <figure className="size-[160px] rounded-full overflow-hidden">
-          <img className="size-full object-cover" src={author.photo} alt="" />
-        </figure>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-x-5">
+          <figure className="size-[160px] rounded-full overflow-hidden">
+            <img className="size-full object-cover" src={author.photo} alt="" />
+          </figure>
 
-        <div>
-          <span>{author.fullname}</span>
+          <div>
+            <span className="text-[30px] font-bold">{author.fullname}</span>
+          </div>
+        </div>
+        <div className="bg-btn px-5 py-2 text-white rounded-lg">
+          Tədbir sayı: {events?.length}
         </div>
       </div>
 

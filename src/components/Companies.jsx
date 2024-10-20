@@ -13,7 +13,7 @@ function Companies() {
       {companies.map((company) => (
         <div
           key={company.id}
-          className="flex flex-col items-center justify-center h-full min-h-[250px] bg-[#E0E0E0] py-7 px-10 p space-y-6 rounded-xl "
+          className="flex flex-col items-center justify-center h-full min-h-[250px] bg-[#E0E0E0] py-7 px-12 p space-y-6 rounded-xl "
         >
           <figure className="size-[80px] rounded-full overflow-hidden">
             <img
@@ -23,7 +23,7 @@ function Companies() {
             />
           </figure>
           <div className="text-center">
-            <span className="font-bold text-[16px]">{company.fullname}</span>
+            <span className="text-[14px] line-clamp-1">{company.fullname}</span>
           </div>
 
           <div className="mt-auto">

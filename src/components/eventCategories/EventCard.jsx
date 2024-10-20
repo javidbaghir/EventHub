@@ -19,18 +19,21 @@ function EventCard({ id, title, photo, publishDate }) {
           <Typography
             variant="h6"
             component="h2"
-            className="h-[60px] line-clamp-2"
+            className="line-clamp-1"
           >
             {title}
           </Typography>
         </div>
 
         <div>
-          <p className="text-btn">{moment(publishDate).format('LL')}</p>
+          <p className="text-[#909090]">{moment(publishDate).format("LL")}</p>
         </div>
 
         <div>
-          <Link className="font-bold" to={`/eventDetails/${id}`} >
+          <Link
+            className=" bg-btn px-5 py-2 text-white rounded-lg"
+            to={`/eventDetails/${id}`}
+          >
             Daha Ətraflı...
           </Link>
         </div>
