@@ -1,18 +1,16 @@
-import { Typography } from '@mui/material'
-import React from 'react'
+import { Typography } from "@mui/material";
+import React from "react";
 
-function CategoryTitle({name}) {
-
-
+function CategoryTitle({ name }) {
   return (
     <div>
-        <div>
+      <div>
         <Typography sx={{ fontWeight: "bold" }} variant="h5">
-            {name}
+          {name}
         </Typography>
-        </div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default CategoryTitle
+export default CategoryTitle;

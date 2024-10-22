@@ -6,31 +6,25 @@ import PageTitle from "../components/titles/PageTitle";
 function About() {
   const [data, setData] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const result = await getAboutData();
-
-  //     setData(result);
-  //   };
-
-  //   fetchData();
-  // }, []);
-
   return (
     <div className="space-y-[40px] p-[50px]">
       <PageTitle title={"Haqqımızda"} />
 
-      <div className="flex flex-col justify-start space-y-4">
+      <div className="flex flex-col justify-center md:justify-start md:space-y-4 space-y-[60px]">
         {dbAboutPage.map((item, index) => (
           <div
             key={item.id}
             className={`flex ${
-              index % 2 === 0 ? "justify-start" : "justify-end"
+              index % 2 === 0
+                ? "md:justify-start justify-center"
+                : "md:justify-end justify-center"
             }`}
           >
             <div
               className={`w-[400px] ${
-                index % 2 === 0 ? "text-left" : "text-right"
+                index % 2 === 0
+                  ? "md:text-left text-center"
+                  : "text-center md:text-right"
               }`}
             >
               <h3 className="text-[30px] text-btn">{item.title}</h3>

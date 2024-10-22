@@ -9,7 +9,7 @@ function Companies() {
   );
 
   return (
-    <div className="flex gap-8 overflow-x-auto pb-10">
+    <div className="flex overflow-x-auto md:flex gap-8 md:overflow-x-auto pb-10">
       {companies.map((company) => (
         <div
           key={company.id}

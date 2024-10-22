@@ -11,8 +11,6 @@ function EventDetails() {
   const { id } = useParams();
 
   const { data } = useFetch(`https://all-api.bitcode.az/api/news/show/${id}`);
-  // const { data } = useFetch(`https://fakestoreapi.com/products/${id}`);
-  console.log(id);
 
   return (
     <div className="space-y-10 pb-10">

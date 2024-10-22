@@ -7,9 +7,9 @@ function EventDetailsHero({ data }) {
   const { photo, title } = data;
 
   return (
-    <div className=" rounded-3xl overflow-hidden">
+    <div className="rounded-3xl overflow-hidden">
       <div className="relative">
-        <figure className="h-[600px] w-full bg-no-repeat">
+        <figure className="md:h-[600px] h-[300px] w-full bg-no-repeat ">
           <img
             className="aspect-[3/4] size-full object-cover"
             src={photo}

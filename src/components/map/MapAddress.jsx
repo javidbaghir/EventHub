@@ -1,10 +1,11 @@
 import React from "react";
 
-function MapAddress({src}) {
+function MapAddress({ src }) {
   return (
-   <div>
-    <iframe
-        width="400"
+    <div>
+      <iframe
+        width="370"
+        md:width="400"
         height="250"
         style={{ border: "0" }}
         loading="lazy"
@@ -12,7 +13,7 @@ function MapAddress({src}) {
         referrerPolicy="no-referrer-when-downgrade"
         src={src}
       ></iframe>
-   </div>
+    </div>
   );
 }
 

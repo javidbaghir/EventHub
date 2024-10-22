@@ -49,7 +49,6 @@ function Register() {
             Authorization: `Bearer ${register.data}`,
           },
         });
-        console.log(user);
 
         if (user.status === 200) {
           setStorage("user", user.data);
@@ -61,7 +60,7 @@ function Register() {
   if (getStorage("token")) return <Navigate to={"/"} />;
 
   return (
-    <div className="grid grid-cols-3 space-y-7">
+    <div className="grid md:grid-cols-3 space-y-7">
       <div className="p-5">
         <Link to={"/"}>
           <Typography sx={{ fontWeight: "bold" }} color="#7848f4" variant="h5">
@@ -155,7 +154,7 @@ function Register() {
           </Button>
         </form>
       </div>
-      <div className="flex justify-end">
+      <div className="flex md:justify-end justify-center">
         <NavLink to={"/login"}>
           <Typography variant="h5">
             <span className="bg-btn text-[#fff] px-3 rounded py-1">

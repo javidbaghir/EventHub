@@ -30,7 +30,7 @@ function Hero() {
   return (
     <div>
       <div
-        className="w-full h-[596px] rounded-2xl relative bg-cover bg-center overflow-hidden"
+        className="md:w-full md:h-[596px] md:rounded-2xl relative bg-cover bg-center overflow-hidden"
         style={{ backgroundImage: `url(${currentItem.photoUrl})` }}
       >
         <div className="absolute inset-0 backdrop-opacity-10 backdrop-invert bg-[#000]/30">
@@ -44,25 +44,6 @@ function Hero() {
               {currentItem.name}
             </Typography>
           </div>
-
-          {/* <div className="flex justify-between absolute inset-0 top-[50%]">
-            <div>
-              <Button
-                onClick={() => handleRightBtn()}
-                color="primary"
-                style={{ color: "#fff", borderRadius: 50 }}
-                startIcon={<IoIosArrowBack size={40} />}
-              ></Button>
-            </div>
-            <div>
-              <Button
-                onClick={() => handleLeftBtn()}
-                color="primary"
-                style={{ color: "#fff", borderRadius: 50 }}
-                startIcon={<IoIosArrowForward size={40} />}
-              ></Button>
-            </div>
-          </div> */}
         </div>
       </div>
     </div>

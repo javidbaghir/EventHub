@@ -9,7 +9,7 @@ function EventCategorySection({ url }) {
   const { data: events, loading, error } = useFetch(url);
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-3 gap-5">
+      <div className="md:grid grid-cols-3 gap-5">
         {events?.length > 0 ? (
           events.map((event) => (
             <EventCard

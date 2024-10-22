@@ -1,0 +1,195 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": "b0a5",
+      "name": "Konsert",
+      "venue": "Kristal Hall",
+      "company": "QualityEvent",
+      "startDate": "2024-10-20T20:10:00.000Z",
+      "endDate": "2024-10-20T20:20:00.000Z",
+      "price": "150",
+      "desc": "* mart",
+      "imgURL": "asdfghjk"
+    },
+    {
+      "id": "8261",
+      "name": "Omer xeyyam gecesi",
+      "venue": "Yarat",
+      "company": "Miras",
+      "startDate": "2024-10-24T03:10:00.000Z",
+      "endDate": "2024-10-24T06:20:00.000Z",
+      "price": "10",
+      "desc": "Omer seir deyecek",
+      "imgURL": "omerinshekli"
+    },
+    {
+      "id": "a04d",
+      "name": "Omer xeyyam gecesi",
+      "venue": "Yarat",
+      "company": "Miras",
+      "startDate": "2024-10-24T03:10:00.000Z",
+      "endDate": "2024-10-24T06:20:00.000Z",
+      "price": "10",
+      "desc": "Omer seir deyecek",
+      "imgURL": "omerinshekli"
+    },
+    {
+      "id": "9269",
+      "name": "Omer xeyyam gecesi",
+      "venue": "Yarat",
+      "company": "Miras",
+      "startDate": "2024-10-24T03:10:00.000Z",
+      "endDate": "2024-10-24T06:20:00.000Z",
+      "price": "10",
+      "desc": "Omer seir deyecek",
+      "imgURL": "omerinshekli"
+    },
+    {
+      "id": "ab75",
+      "name": "Omer xeyyam gecesi",
+      "venue": "Yarat",
+      "company": "Miras",
+      "startDate": "2024-10-24T03:10:00.000Z",
+      "endDate": "2024-10-24T06:20:00.000Z",
+      "price": "10",
+      "desc": "Omer seir deyecek",
+      "imgURL": "omerinshekli"
+    },
+    {
+      "id": "a1a2",
+      "name": "Omer xeyyam gecesi",
+      "venue": "Yarat",
+      "company": "Miras",
+      "startDate": "2024-10-24T03:10:00.000Z",
+      "endDate": "2024-10-24T06:20:00.000Z",
+      "price": "10",
+      "desc": "Omer seir deyecek",
+      "imgURL": "omerinshekli"
+    },
+    {
+      "id": "698e",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "7598",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "7d12",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "59d2",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "5e6b",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "43be",
+      "name": "tedbir",
+      "venue": "sadsa",
+      "company": "dscds",
+      "startDate": "2024-10-25T01:00:00.000Z",
+      "endDate": "2024-10-29T03:00:00.000Z",
+      "price": "12",
+      "desc": "21ee2",
+      "imgURL": "sdcda"
+    },
+    {
+      "id": "4b1e",
+      "name": "asd",
+      "venue": "zdfbvf",
+      "company": "dfbzdfb",
+      "startDate": "2024-10-21T03:00:00.000Z",
+      "endDate": "2024-10-21T02:00:00.000Z",
+      "price": "432",
+      "desc": "dfbfd",
+      "imgURL": "bfdabfd"
+    },
+    {
+      "id": "1fd2",
+      "name": "sacsda",
+      "venue": "scac",
+      "company": "scasdc",
+      "startDate": "2024-10-21T23:00:00.000Z",
+      "endDate": "2024-10-22T02:00:00.000Z",
+      "price": 12,
+      "desc": "fdsa",
+      "imgURL": "dcsac"
+    },
+    {
+      "id": "7a04",
+      "name": "Cavid",
+      "venue": "adcs",
+      "company": "scasdc",
+      "startDate": "2024-10-22T03:00:00.000Z",
+      "endDate": "2024-10-22T03:35:00.000Z",
+      "price": "0",
+      "desc": "üedüed",
+      "imgURL": "üdeüd"
+    },
+    {
+      "id": "e3d2",
+      "name": "üd",
+      "venue": "üd",
+      "company": "üd",
+      "startDate": "2024-10-22T01:00:00.000Z",
+      "endDate": "2024-10-22T00:20:00.000Z",
+      "price": "0",
+      "desc": "üd",
+      "imgURL": "üdü"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

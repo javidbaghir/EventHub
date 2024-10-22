@@ -17,16 +17,22 @@ function Company() {
     <div className="space-y-10">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-x-5">
-          <figure className="size-[160px] rounded-full overflow-hidden">
-            <img className="size-full object-cover" src={author.photo} alt="" />
+          <figure className="md:size-[160px] size-[100px] rounded-full overflow-hidden">
+            <img
+              className="size-full object-cover"
+              src={author?.photo}
+              alt=""
+            />
           </figure>
 
           <div>
-            <span className="text-[30px] font-bold">{author.fullname}</span>
+            <span className="md:text-[30px] text-[18px] font-bold">
+              {author?.fullname}
+            </span>
           </div>
         </div>
-        <div className="bg-btn px-5 py-2 text-white rounded-lg">
-          Tədbir sayı: {events?.length}
+        <div className="bg-btn md:px-5 md:py-2 px-2 py-1 text-white rounded-lg">
+          <span> Tədbir sayı: {events?.length}</span>
         </div>
       </div>
 
@@ -37,7 +43,7 @@ function Company() {
           Şirkət tərəfindən keçirilən Tədbirlər
         </span>
       </div>
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid md:grid-cols-3 gap-5">
         {events.map((event) => (
           <EventCard
             key={event.id}

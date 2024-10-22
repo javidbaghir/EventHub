@@ -12,6 +12,7 @@ import AuthProvider from "../provider/AuthProvider";
 import { GlobalContextProvider } from "../context/GlobalContext";
 import Search from "../pages/Search";
 import Company from "../components/Company";
+import { ScrollRestoration } from "react-router-dom";
 
 const routes = [
   {
@@ -81,7 +82,10 @@ const createRouter = (routes) => {
   return routes.map((router) => {
     if (router.layout) {
       const Layout = router.layout;
-      router.element = <Layout>{router.element}</Layout>;
+      router.element = <Layout>
+         <ScrollRestoration />
+        {router.element}
+        </Layout>;
     }
 
     if (router.isAuth)

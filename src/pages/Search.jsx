@@ -5,9 +5,17 @@ import EventCard from "../components/eventCategories/EventCard";
 function Search() {
   const location = useLocation();
   const { data } = location.state || {};
+  const result = window.location.search.split("=", 2);
+  const searchData = result[1];
+
   return (
     <div className="p-5">
-      <div className="grid grid-cols-3 gap-5">
+      <div>
+        <p className="text-[30px] font-bold">
+          {searchData} üzrə axtarış nəticəsi
+        </p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-5">
         {data?.length > 0 ? (
           data.map((event) => (
             <EventCard

@@ -53,7 +53,7 @@ function Login() {
   if (getStorage("token")) return <Navigate to={"/"} />;
 
   return (
-    <div className="grid grid-cols-3 p-5">
+    <div className="grid md:grid-cols-3 p-5 space-y-8">
       <div>
         <Link to={"/"}>
           <Typography sx={{ fontWeight: "bold" }} color="#7848f4" variant="h5">
@@ -126,13 +126,12 @@ function Login() {
             variant="contained"
             fullWidth
           >
-           {loading ? <Loading /> :  "Daxil Ol"}
-           
+            {loading ? <Loading /> : "Daxil Ol"}
           </Button>
         </form>
       </div>
 
-      <div className="flex justify-end">
+      <div className="flex md:justify-end justify-center">
         <NavLink to={"/register"}>
           <Typography variant="h5">
             <span className="bg-btn text-[#fff] px-3 rounded py-1">

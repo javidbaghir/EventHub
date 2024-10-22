@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 function MakeOwnEvent() {
   return (
     <div>
-      <div className="grid grid-cols-2 bg-[#10107b] py-[35px] space-y-5 mb-5 relative">
-        <div className="flex justify-center -mt-20">
+      <div className="md:grid grid-cols-2 bg-[#10107b] py-[35px] space-y-5 mb-5 relative">
+        <div className="flex justify-center -mt-20 hidden md:block">
           <figure className="w-[360px]">
             <img
               className="object-cover size-full"
@@ -15,7 +15,7 @@ function MakeOwnEvent() {
             />
           </figure>
         </div>
-        <div className="space-y-5 ml-[90px] flex flex-col justify-center">
+        <div className="space-y-5 md:ml-[90px] flex items-center justify-center gap-x-5 flex-col ">
           <div>
             <Typography
               variant="h5"

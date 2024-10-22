@@ -8,7 +8,7 @@ function EventDetailsBody({ data }) {
   const { content, published_date } = data;
 
   return (
-    <div className="grid grid-cols-2 gap-[90px] px-10">
+    <div className="grid md:grid-cols-2 grid-cols-1 gap-[90px] px-10">
       <div className="space-y-5">
         <div>
           <CategoryTitle name={"Ətraflı"} />
@@ -29,8 +29,19 @@ function EventDetailsBody({ data }) {
           <CategoryTitle name={"Təşkilatçı Şirkət"} />
         </div>
 
-        <div>
-          <Link to={`/company/${data?.author?.slug}`}>{data?.author?.slug ? data.author.slug : "Təşkilatçı məlum deyil"}</Link>
+        <div className="flex items-center gap-x-5">
+          <div>
+            <figure className="size-[60px] rounded-full overflow-hidden">
+              <img
+                className="size-full object-cover"
+                src={data?.author?.photo}
+                alt=""
+              />
+            </figure>
+          </div>
+          <Link to={`/company/${data?.author?.slug}`}>
+            {data?.author?.slug ? data.author.slug : "Təşkilatçı məlum deyil"}
+          </Link>
         </div>
       </div>
 

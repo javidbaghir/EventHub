@@ -5,10 +5,10 @@ import PageTitle from "../components//titles/PageTitle";
 
 function ContactUs() {
   return (
-    <div>
+    <div className="mt-10 md:mt-0">
       <PageTitle title={"Bizimlə Əlaqə"} />
 
-      <div className="flex p-20 gap-10">
+      <div className="flex flex-col md:flex-row p-5 md:p-20 gap-10">
         <ContactUsForm />
         <div className="border-r border-[#7c7c7c]"></div>
         <ContactUsAdresses />

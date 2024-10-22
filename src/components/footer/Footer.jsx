@@ -17,11 +17,11 @@ function Footer() {
         </Link>
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex flex-col justify-center items-center md:flex-row md:justify-center">
         {getMenu.map((menu, index) => (
           <NavLink
             key={index}
-            className={"h-48px px-[40px] text-[#fff]"}
+            className={"md:h-48px md:px-[40px] text-[#fff]"}
             to={menu.path}
           >
             {menu.label}
