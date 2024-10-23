@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import moment from "moment";
 
 function EventDetailsBody({ data }) {
-  const { content, published_date } = data;
+  const { content, published_date, seo_link } = data;
 
   return (
     <div className="grid md:grid-cols-2 grid-cols-1 gap-[90px] px-10">
@@ -22,7 +22,7 @@ function EventDetailsBody({ data }) {
 
         <div>
           <p>Tarix: {moment(published_date).format("ll")}</p>
-          <p>Saat: Tarix: {moment(published_date).format("LT")}</p>
+          <p>Saat: {moment(published_date).format("LT")}</p>
         </div>
 
         <div>
@@ -75,7 +75,7 @@ function EventDetailsBody({ data }) {
         </div>
 
         <div className="flex gap-3">
-          <Link to={"/"}>
+          <Link target="blank" to={seo_link}>
             <figure className="size-[30px]">
               <img
                 className="object-cover size-full"
@@ -85,7 +85,7 @@ function EventDetailsBody({ data }) {
             </figure>
           </Link>
 
-          <Link to={"/"}>
+          <Link target="blank" to={seo_link}>
             <figure className="size-[30px]">
               <img
                 className="object-cover size-full"
@@ -95,7 +95,7 @@ function EventDetailsBody({ data }) {
             </figure>
           </Link>
 
-          <Link to={"/"}>
+          <Link target="blank" to={seo_link}>
             <figure className="size-[30px]">
               <img
                 className="object-cover size-full"
@@ -105,7 +105,7 @@ function EventDetailsBody({ data }) {
             </figure>
           </Link>
 
-          <Link to={"/"}>
+          <Link target="blank" to={seo_link}>
             <figure className="size-[30px]">
               <img
                 className="object-cover size-full"

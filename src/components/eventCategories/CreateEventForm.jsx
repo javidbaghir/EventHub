@@ -21,33 +21,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 function CreateEventForm() {
-  // const { value, setField, handleSubmit, loading } = useForm({
-  //   initialState: {
-  //     name: "",
-  //     venue: "",
-  //     company: "",
-  //     startDate: null,
-  //     endDate: null,
-  //     price: "",
-  //     desc: "",
-  //     imgURL: "",
-  //   },
-  //   onSubmit: async (value) => {
-  //     const data = await ApiPost(CREATEEVENTENDPOINT.post, value);
-
-  //     setField((prev) => ({
-  //       ...prev,
-  //       name: "",
-  //       venue: "",
-  //       company: "",
-  //       startDate: null,
-  //       endDate: null,
-  //       price: "",
-  //       desc: "",
-  //       imgURL: "",
-  //     }));
-  //   },
-  // });
   const form = useRef();
   const validationSchema = Yup.object({
     name: Yup.string().required("Tədbir adını qeyd edin"),
@@ -66,7 +39,7 @@ function CreateEventForm() {
       company: "",
       startDate: null,
       endDate: null,
-      price: "0",
+      price: "",
       desc: "",
       imgURL: "",
     },
@@ -157,8 +130,7 @@ function CreateEventForm() {
           <PageTitle title={"Tədbir haqqında"} />
 
           <FormControl fullWidth>
-            <InputLabel htmlFor="outlined-adornment-amount">Qiymət</InputLabel>
-            <OutlinedInput
+            <TextField
               id="outlined-adornment-amount"
               name="price"
               value={formik.values.price}
@@ -167,10 +139,7 @@ function CreateEventForm() {
               helperText={formik.touched.price && formik.errors.price}
               onChange={formik.handleChange}
               type="number"
-              startAdornment={
-                <InputAdornment position="start">₼</InputAdornment>
-              }
-              label="Amount"
+              label="Qiymət ₼"
             />
           </FormControl>
           <TextField
