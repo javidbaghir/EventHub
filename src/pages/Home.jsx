@@ -13,18 +13,18 @@ function Home() {
       <SearchInput />
       <CategoryTitle name={"Gələcək tədbirlər"} />
       <EventCategorySection
-        url={`https://all-api.bitcode.az/api/news?limit=6&category=economy`}
+        category={'economy'}
       />
       <CategoryTitle name={"Təşkilatçı Şirkətlər"} />
       <Companies />
       <MakeOwnEvent />
       <CategoryTitle name={"Trenddə olan tədbirlər"} />
       <EventCategorySection
-        url={`https://all-api.bitcode.az/api/news?limit=3&category=world`}
+        category={'world'}
       />
       <CategoryTitle name={"Yerli tədbirlər"} />
       <EventCategorySection
-        url={`https://all-api.bitcode.az/api/news?limit=3&category=world`}
+        category={'politics'}
       />
     </div>
   );

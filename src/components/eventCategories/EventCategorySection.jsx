@@ -3,10 +3,12 @@ import EventCard from "./EventCard";
 import useFetch from "../../hooks/UseFetch";
 import LoadMoreButton from "../LoadMoreButton";
 
-function EventCategorySection({ url }) {
+function EventCategorySection({ category }) {
+
+
   const [limit, setLimit] = useState(3);
 
-  const { data: events, loading, error } = useFetch(url);
+  const { data: events, loading, error } = useFetch(`https://all-api.bitcode.az/api/news?limit=${limit}&category=${category}`);
   return (
     <div className="space-y-8">
       <div className="md:grid grid-cols-3 gap-5">
