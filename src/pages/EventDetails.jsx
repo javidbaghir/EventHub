@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 import useFetch from "../hooks/UseFetch";
 import EventDetailsHero from "../components/hero/EventDetailsHero";
 import EventDetailsBody from "../components/eventCategories/EventDetailsBody";
-import UpComingEvents from "../components/eventCategories/UpComingEvents";
 import CategoryTitle from "../components/titles/CategoryTitle";
 import EventCategorySection from "../components/eventCategories/eventCategorySection";
 

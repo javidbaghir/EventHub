@@ -11,20 +11,17 @@ function Home() {
     <div className="space-y-10 py-5">
       <Hero />
       <SearchInput />
-      <CategoryTitle name={"Gələcək tədbirlər"} />
       <EventCategorySection
-        category={'economy'}
+        category={'economy'} title="Gələcək tədbirlər"
       />
       <CategoryTitle name={"Təşkilatçı Şirkətlər"} />
       <Companies />
       <MakeOwnEvent />
-      <CategoryTitle name={"Trenddə olan tədbirlər"} />
       <EventCategorySection
-        category={'world'}
+        category={'world'} title={"Trenddə olan tədbirlər"}
       />
-      <CategoryTitle name={"Yerli tədbirlər"} />
       <EventCategorySection
-        category={'politics'}
+        category={'politics'} title="Yerli tədbirlər"
       />
     </div>
   );
