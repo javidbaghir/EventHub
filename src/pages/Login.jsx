@@ -71,24 +71,24 @@ function Login() {
         >
           <TextField
             name="email"
-            value={value.email}
+            value={value?.email}
             onChange={(e) => setField("email", e.target.value)}
             id="filled-basic"
             label="Email"
             fullWidth
-            error={Boolean(errors.email)}
-            helperText={errors.email}
+            error={Boolean(errors?.email)}
+            helperText={errors?.email}
           />
 
           <FormControl
             variant="outlined"
             fullWidth
-            error={Boolean(errors.password)}
+            error={Boolean(errors?.password)}
           >
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
               name="password"
-              value={value.password}
+              value={value?.password}
               onChange={(e) => setField("password", e.target.value)}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
@@ -107,15 +107,15 @@ function Login() {
               }
               label="Password"
             />
-            {errors.password && (
+            {errors?.password && (
               <Typography variant="caption" color="error">
-                {errors.password}
+                {errors?.password}
               </Typography>
             )}
 
-            {errors.message && (
+            {errors?.message && (
               <Typography variant="caption" color="error">
-                {errors.message}
+                {errors?.message}
               </Typography>
             )}
           </FormControl>

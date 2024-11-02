@@ -21,7 +21,7 @@ function SearchInput() {
       `https://all-api.bitcode.az/api/news?title=${searchTerm}`
     );
 
-    if (search.status === 200 && search.data.data) {
+    if (search?.status === 200 && search?.data?.data) {
       navigate(`/search?title=${searchTerm}`, { state: { data: search.data.data } });
       setSearchTerm("");
     }

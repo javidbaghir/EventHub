@@ -4,13 +4,16 @@ import useFetch from "../hooks/UseFetch";
 import { Link } from "react-router-dom";
 
 function Companies() {
+
   const { data: companies } = useFetch(
     `https://all-api.bitcode.az/api/authors?random=true`
   );
 
+
+
   return (
     <div className="flex overflow-x-auto md:flex gap-8 md:overflow-x-auto pb-10">
-      {companies.map((company) => (
+      {companies?.map((company) => (
         <div
           key={company?.id}
           className="flex flex-col items-center justify-center h-full min-h-[250px] bg-[#E0E0E0] py-7 px-12 p space-y-6 rounded-xl "

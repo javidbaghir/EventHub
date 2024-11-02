@@ -4,7 +4,6 @@ import { dbAboutPage } from "../fakedatabse/database";
 import PageTitle from "../components/titles/PageTitle";
 
 function About() {
-  const [data, setData] = useState([]);
 
   return (
     <div className="space-y-[40px] p-[50px]">
@@ -28,7 +27,7 @@ function About() {
               }`}
             >
               <h3 className="text-[30px] text-btn">{item.title}</h3>
-              <p>{item.desc}</p>
+              <p>{item?.desc}</p>
             </div>
           </div>
         ))}

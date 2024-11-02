@@ -22,7 +22,7 @@ function Footer() {
           <NavLink
             key={index}
             className={"md:h-48px md:px-[40px] text-[#fff]"}
-            to={menu.path}
+            to={menu?.path}
           >
             {menu.label}
           </NavLink>

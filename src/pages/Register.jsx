@@ -80,28 +80,28 @@ function Register() {
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <TextField
-            error={errors.name}
-            helperText={errors.name}
+            error={errors?.name}
+            helperText={errors?.name}
             onChange={(e) => setField("name", e.target.value)}
             name="name"
-            value={value.name}
+            value={value?.name}
             id="filled-basic"
             label="Ad"
           />
           <TextField
-            error={errors.surname}
-            helperText={errors.surname}
+            error={errors?.surname}
+            helperText={errors?.surname}
             name="surname"
-            value={value.surname}
+            value={value?.surname}
             onChange={(e) => setField("surname", e.target.value)}
             id="filled-basic"
             label="Soyad"
           />
           <TextField
-            error={errors.email}
-            helperText={errors.email}
+            error={errors?.email}
+            helperText={errors?.email}
             name="email"
-            value={value.email}
+            value={value?.email}
             onChange={(e) => setField("email", e.target.value)}
             id="filled-basic"
             label="Email"
@@ -110,10 +110,10 @@ function Register() {
           <FormControl error={Boolean(errors.password)} variant="outlined">
             <InputLabel htmlFor="outlined-adornment-password">Parol</InputLabel>
             <OutlinedInput
-              error={errors.password}
-              helperText={errors.password}
+              error={errors?.password}
+              helperText={errors?.password}
               name="password"
-              value={value.password}
+              value={value?.password}
               onChange={(e) => setField("password", e.target.value)}
               id="outlined-adornment-password"
               type={showPassword ? "text" : "password"}
@@ -134,13 +134,13 @@ function Register() {
             />
             {errors.password && (
               <Typography variant="caption" color="error">
-                {errors.password}
+                {errors?.password}
               </Typography>
             )}
 
             {errors.message && (
               <Typography variant="caption" color="error">
-                {errors.message}
+                {errors?.message}
               </Typography>
             )}
           </FormControl>

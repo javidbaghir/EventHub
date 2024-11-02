@@ -173,7 +173,6 @@ function CreateEventForm() {
               style={{ backgroundColor: "#7848f4", color: "#FFFFFF" }}
               variant="contained"
             >
-              {/* {loading ? "Göndərilir..." : "Göndər"} */}
               Göndər
             </Button>
           </div>

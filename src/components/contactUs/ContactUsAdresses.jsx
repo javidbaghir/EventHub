@@ -10,21 +10,21 @@ function ContactUsAdresses() {
   return (
     <div>
       {contactUsData.map((item) => (
-        <div key={item.id} className="space-y-4">
+        <div key={item?.id} className="space-y-4">
           <div className="flex items-center gap-5">
             <FaLocationDot className="text-[20px]" />
             <span className="text-[20px]">
-              {item.country}, {item.city}, {item.street}
+              {item?.country}, {item?.city}, {item?.street}
             </span>
           </div>
           <div className="flex items-center gap-5">
             <FaPhoneAlt />
-            <span className="text-[20px]">{item.phone}</span>
+            <span className="text-[20px]">{item?.phone}</span>
           </div>
 
           <div className="flex items-center gap-5">
             <MdEmail />
-            <span className="text-[20px]">{item.email}</span>
+            <span className="text-[20px]">{item?.email}</span>
           </div>
           <MapAddress
             src={

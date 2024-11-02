@@ -5,6 +5,7 @@ import EventDetailsHero from "../components/hero/EventDetailsHero";
 import EventDetailsBody from "../components/eventCategories/EventDetailsBody";
 import CategoryTitle from "../components/titles/CategoryTitle";
 import EventCategorySection from "../components/eventCategories/eventCategorySection";
+import RandomEvents from "../components/eventCategories/RandomEvents";
 
 function EventDetails() {
   const { id } = useParams();
@@ -15,9 +16,9 @@ function EventDetails() {
     <div className="space-y-10 pb-10">
       <EventDetailsHero data={data} />
       <EventDetailsBody data={data} />
-      <CategoryTitle name={"Bəyənə biləcəyiniz digər tədbirlər"} />
-      <EventCategorySection
-        url={"https://all-api.bitcode.az/api/news/random?limit=6"}
+      <CategoryTitle name={""} />
+      <RandomEvents
+        title={"Bəyənə biləcəyiniz digər tədbirlər"}
       />
     </div>
   );

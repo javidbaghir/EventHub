@@ -4,18 +4,16 @@ import useFetch from "../../hooks/UseFetch";
 import LoadMoreButton from "../LoadMoreButton";
 import CategoryTitle from "../titles/CategoryTitle";
 
-function EventCategorySection({ category, title }) {
+function RandomEvents({ title }) {
   const [limit, setLimit] = useState(3);
-  const [test, setTest] = useState(0);
 
   const {
     data: events,
     loading,
     error,
   } = useFetch(
-    `https://all-api.bitcode.az/api/news?limit=${limit}&category=${category}`
+    `https://all-api.bitcode.az/api/news/random?limit=${limit}`
   );
-
   return (
     <div className="space-y-8">
       <CategoryTitle name={title} />
@@ -42,4 +40,4 @@ function EventCategorySection({ category, title }) {
   );
 }
 
-export default EventCategorySection;
+export default RandomEvents;

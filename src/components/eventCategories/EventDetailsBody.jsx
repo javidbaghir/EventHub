@@ -40,7 +40,7 @@ function EventDetailsBody({ data }) {
             </figure>
           </div>
           <Link to={`/company/${data?.author?.slug}`}>
-            {data?.author?.slug ? data.author.slug : "Təşkilatçı məlum deyil"}
+            {data?.author?.slug ? data?.author?.slug : "Təşkilatçı məlum deyil"}
           </Link>
         </div>
       </div>
