@@ -1,6 +1,5 @@
 import CryptoJS from "crypto-js";
 
-
 const key = "javid01event";
 
 export const enCode = (string) => {

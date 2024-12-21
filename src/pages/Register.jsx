@@ -57,8 +57,20 @@ function Register() {
       }
     },
   });
+
   if (getStorage("token")) return <Navigate to={"/"} />;
 
+  let arr = [-1, 2, 3, -9];
+
+  function allSum(param) {
+    let sum = 0;
+    for(let newAr of param) {
+      sum += newAr
+    }
+  console.log(sum)
+  }
+  allSum(arr)
+ 
   return (
     <div className="grid md:grid-cols-3 space-y-7">
       <div className="p-5">
