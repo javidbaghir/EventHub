@@ -27,25 +27,22 @@ function ContactUsForm() {
     },
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
-    
-
-        emailjs
-          .sendForm(
-            "service_yc2m7g5",
-            "template_5swurkr",
-            form.current,
-            "P703uwkrEiCP3caOr",
-            {}
-          )
-          .then(
-            (result) => {
-             resetForm();
-            },
-            (error) => {
-              alert("Mesaj göndərilmədi");
-            }
-          );
-     
+      emailjs
+        .sendForm(
+          "service_yc2m7g5",
+          "template_5swurkr",
+          form.current,
+          "P703uwkrEiCP3caOr",
+          {}
+        )
+        .then(
+          (result) => {
+            resetForm();
+          },
+          (error) => {
+            alert("Mesaj göndərilmədi");
+          }
+        );
     },
   });
 
